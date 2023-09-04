@@ -1,0 +1,22 @@
+<table class="table is striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Word Count</th>
+            <th>Snippet</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let page of pages">   
+            <td>
+              <a 
+                target="_blank"
+                [href]="'https://en.wikipedia.org?curid=' + page.pageid">
+                {{ page.title }}
+              </a>
+            </td>  
+            <td>{{ page.wordcount }}</td>
+            <!-- <td>{{ page.snippet }}</td>    would run raw html sent from third party, next line instead will purify the content    -->
+            <td [innerHTML]="page.snippet"></td>  
+        </tr>
+    </tbody>
